@@ -8,12 +8,12 @@ exports.handleIncoming = async (req, res) => {
   const gather = twiml.gather({
     input: 'speech',
     action: '/call/process-speech',
-    language: 'ta-IN',        // ✅ Tamil
+    language: 'ta-IN',        
     speechTimeout: 'auto',
   });
 
   gather.say({
-    language: 'ta-IN'         // ✅ Tamil voice
+    language: 'ta-IN'        
   }, 'வணக்கம்! ABC Company-க்கு வரவேற்கிறோம். நான் உங்களுக்கு எப்படி உதவலாம்?');
 
   res.type('text/xml');
@@ -37,18 +37,18 @@ exports.processSpeech = async (req, res) => {
     const gather = twiml.gather({
       input: 'speech',
       action: '/call/process-speech',
-      language: 'ta-IN',      // ✅ Tamil
+      language: 'ta-IN',     
       speechTimeout: 'auto',
     });
 
     gather.say({
-      language: 'ta-IN'       // ✅ Tamil voice
+      language: 'ta-IN'      
     }, 'வேறு ஏதாவது உதவி வேண்டுமா?');
 
   } catch (err) {
     console.error('Error:', err);
     twiml.say({
-      language: 'ta-IN'       // ✅ Tamil voice
+      language: 'ta-IN'     
     }, 'மன்னிக்கவும், ஒரு சிக்கல் ஏற்பட்டது. மீண்டும் முயற்சிக்கவும்.');
   }
 
